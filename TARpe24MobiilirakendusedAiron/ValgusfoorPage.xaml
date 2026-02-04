@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TARpe24MobiilirakendusedAiron.ValgusfoorPage"
+             Title="ValgusfoorPage">
+    <VerticalStackLayout
+        Spacing="20"
+        Padding="20"
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+
+        <!-- Pealkiri-->
+        <Label x:Name="StatusLabel"
+               Text="Vali valgus"
+               FontSize="20"
+               HorizontalOptions="Center" />
+
+        <!-- Valgusfoor-->
+        <VerticalStackLayout Spacing="15">
+
+            <BoxView x:Name="RedLight"
+                     WidthRequest="80"
+                     HeightRequest="80"
+                     Color="Gray"
+                     CornerRadius="40" />
+
+            <BoxView x:Name="YellowLight"
+                     WidthRequest="80"
+                     HeightRequest="80"
+                     Color="Gray"
+                     CornerRadius="40" />
+
+            <BoxView x:Name="GreenLight"
+                     WidthRequest="80"
+                     HeightRequest="80"
+                     Color="Gray"
+                     CornerRadius="40" />
+
+        </VerticalStackLayout>
+
+        <!-- Nupud -->
+        <HorizontalStackLayout Spacing="20">
+            <Button Text="Sisse"
+                    Clicked="OnSisseClicked" />
+
+            <Button Text="Välja"
+                    Clicked="OnValjaClicked" />
+
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

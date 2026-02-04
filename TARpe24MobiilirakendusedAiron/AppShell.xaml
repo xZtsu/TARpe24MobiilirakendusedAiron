@@ -10,5 +10,10 @@
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+    <ShellContent
+        Title="Valgusfoor"
+        ContentTemplate="{DataTemplate local:ValgusfoorPage}"
+        Route="ValgusfoorPage" />
+    
 
 </Shell>
