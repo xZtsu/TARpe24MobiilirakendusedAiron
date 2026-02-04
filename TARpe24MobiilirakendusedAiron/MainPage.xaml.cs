@@ -12,6 +12,7 @@
         private void OnCounterClicked(object? sender, EventArgs e)
         {
             count++;
+            
 
             // Loogika 1: Muuda teksti vastavalt arvule
             if (count == 1)
@@ -35,9 +36,18 @@
                 BotImage.IsVisible = false; // Peidab pildi
                 CounterBtn.Text = "Pilt kadus ära! Vajuta Reset.";
             }
+            if (count >= 5)
+            {
+                CounterBtn.BackgroundColor = Colors.Red;
+                CounterBtn.TextColor = Colors.White;
+            }
 
             // Rakendame värvi teisele nupule või taustale
             ResetBtn.BackgroundColor = randomColor;
+
+
+            BotImage.Opacity -= 0.1; //vajutusel kahaneb nähtavus 0.1 võrra
+          
 
             SemanticScreenReader.Announce(CounterBtn.Text);
         }
@@ -49,6 +59,24 @@
 
             BotImage.Rotation = 0; // Pilt läheb otseks tagasi
             BotImage.IsVisible = true; // Toob pildi tagasi
+            if (count >= 0)
+            {
+                CounterBtn.BackgroundColor = Colors.Blue;
+                CounterBtn.TextColor = Colors.White;
+            }
+            if (BotImage.HorizontalOptions == LayoutOptions.Start)
+            {
+                BotImage.HorizontalOptions = LayoutOptions.Center;
+            }
+            else if (BotImage.HorizontalOptions == LayoutOptions.Center)
+            {
+                BotImage.HorizontalOptions = LayoutOptions.End;
+            }
+            else
+            {
+                BotImage.HorizontalOptions = LayoutOptions.Start;
+            }
+            BotImage.Opacity = 1; // vajutusel reset opacitiy to 1, nähtavaks
         }
 
 

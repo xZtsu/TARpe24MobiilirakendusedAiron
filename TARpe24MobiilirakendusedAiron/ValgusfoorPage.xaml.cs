@@ -9,6 +9,7 @@ public partial class ValgusfoorPage : ContentPage
         {
             InitializeComponent();
             LisaKlikid();
+
             KeelaKlikid();
         }
 
@@ -69,8 +70,8 @@ public partial class ValgusfoorPage : ContentPage
         void LubaKlikid()
         {
             RedLight.IsEnabled = true;
-            YellowLight.IsEnabled = false;
-            GreenLight.IsEnabled = false;
+            YellowLight.IsEnabled = true;
+            GreenLight.IsEnabled = true;
         }
 
         void KeelaKlikid()
