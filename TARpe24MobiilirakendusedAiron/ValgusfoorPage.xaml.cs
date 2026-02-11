@@ -54,6 +54,7 @@ public partial class ValgusfoorPage : ContentPage
             StatusLabel.Text = "Vali valgus";
             LubaKlikid();
         }
+       
 
         void OnValjaClicked(object sender, EventArgs e)
         {
@@ -80,5 +81,64 @@ public partial class ValgusfoorPage : ContentPage
             YellowLight.IsEnabled = false;
             GreenLight.IsEnabled = false;
         }
-    
+    private bool isCycling = false;
+    private CancellationTokenSource cycleTokenSource;
+    async void CycleClicked(object sender, EventArgs e)
+    {
+        if (isCycling)
+        {
+            // Stop cycling if already running
+            isCycling = false;
+            cycleTokenSource?.Cancel();
+            StatusLabel.Text = "Tsükkel peatatud";
+            LubaKlikid();
+            return;
+        }
+
+        foorOn = true;
+        isCycling = true;
+        cycleTokenSource = new CancellationTokenSource();
+
+        KeelaKlikid(); // Disable other buttons while cycling
+
+        try
+        {
+            while (isCycling && !cycleTokenSource.Token.IsCancellationRequested)
+            {
+                // Red light
+                RedLight.Color = Colors.Red;
+                YellowLight.Color = Colors.Gray;
+                GreenLight.Color = Colors.Gray;
+                StatusLabel.Text = "Punane tuli";
+                await Task.Delay(2000, cycleTokenSource.Token);
+
+                if (!isCycling) break;
+
+                // Yellow light
+                RedLight.Color = Colors.Gray;
+                YellowLight.Color = Colors.Yellow;
+                GreenLight.Color = Colors.Gray;
+                StatusLabel.Text = "Kollane tuli";
+                await Task.Delay(2000, cycleTokenSource.Token);
+
+                if (!isCycling) break;
+
+                // Green light
+                RedLight.Color = Colors.Gray;
+                YellowLight.Color = Colors.Gray;
+                GreenLight.Color = Colors.Green;
+                StatusLabel.Text = "Roheline tuli";
+                await Task.Delay(2000, cycleTokenSource.Token);
+            }
+        }
+        catch (TaskCanceledException)
+        {
+            
+        }
+        finally
+        {
+            isCycling = false;
+            LubaKlikid();
+        }
+    }
 }

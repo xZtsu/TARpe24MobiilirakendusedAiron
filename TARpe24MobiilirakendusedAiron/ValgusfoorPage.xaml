@@ -45,6 +45,11 @@
 
             <Button Text="Välja"
                     Clicked="OnValjaClicked" />
+            <Button
+                x:Name="CyclBtn"
+                Text="Cycle colors"
+                
+                Clicked="CycleClicked" />
 
         </HorizontalStackLayout>
     </VerticalStackLayout>
