@@ -1,0 +1,21 @@
+<!-- In your XAML file -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TARpe24MobiilirakendusedAiron.StartPage">
+    <StackLayout>
+        
+        <!-- Your existing content -->
+        
+        <!-- Navigation buttons at the bottom -->
+        <Grid ColumnDefinitions="*,*" Margin="10">
+            <Button Text="◄ Eelmine" 
+                    Clicked="NavigateToPreviousPage"
+                    Grid.Column="0"
+                    Margin="5"/>
+            <Button Text="Järgmine ►" 
+                    Clicked="NavigateToNextPage"
+                    Grid.Column="1"
+                    Margin="5"/>
+        </Grid>
+    </StackLayout>
+</ContentPage>

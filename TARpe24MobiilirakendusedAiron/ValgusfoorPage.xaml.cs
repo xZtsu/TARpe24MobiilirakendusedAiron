@@ -109,7 +109,7 @@ public partial class ValgusfoorPage : ContentPage
                 RedLight.Color = Colors.Red;
                 YellowLight.Color = Colors.Gray;
                 GreenLight.Color = Colors.Gray;
-                StatusLabel.Text = "Punane tuli";
+                StatusLabel.Text = "Seisa";
                 await Task.Delay(2000, cycleTokenSource.Token);
 
                 if (!isCycling) break;
@@ -118,7 +118,7 @@ public partial class ValgusfoorPage : ContentPage
                 RedLight.Color = Colors.Gray;
                 YellowLight.Color = Colors.Yellow;
                 GreenLight.Color = Colors.Gray;
-                StatusLabel.Text = "Kollane tuli";
+                StatusLabel.Text = "Valmista";
                 await Task.Delay(2000, cycleTokenSource.Token);
 
                 if (!isCycling) break;
@@ -127,7 +127,7 @@ public partial class ValgusfoorPage : ContentPage
                 RedLight.Color = Colors.Gray;
                 YellowLight.Color = Colors.Gray;
                 GreenLight.Color = Colors.Green;
-                StatusLabel.Text = "Roheline tuli";
+                StatusLabel.Text = "Sõida";
                 await Task.Delay(2000, cycleTokenSource.Token);
             }
         }

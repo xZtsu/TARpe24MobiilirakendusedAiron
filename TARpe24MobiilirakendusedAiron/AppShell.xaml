@@ -7,13 +7,25 @@
     Title="TARpe24MobiilirakendusedAiron">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Title="Avaleht"
+        ContentTemplate="{DataTemplate local:StartPage}"
+        Route="StartPage" />
     <ShellContent
         Title="Valgusfoor"
         ContentTemplate="{DataTemplate local:ValgusfoorPage}"
         Route="ValgusfoorPage" />
+    <ShellContent
+        Title="MainPage"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+    <ShellContent
+        Title="TextPage"
+        ContentTemplate="{DataTemplate local:TextPage}"
+        Route="TextPage" />
+    <ShellContent
+        Title="FigurePage"
+        ContentTemplate="{DataTemplate local:FigurePage}"
+        Route="FigurePage" />
     
 
 </Shell>
