@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TARpe24MobiilirakendusedAiron.Lumememm"
+             Title="Lumememm">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+
+        <Picker x:Name="tegevusPicker" Title="Vali tegevus">
+            <Picker.Items>
+                <x:String>Peida lumememm</x:String>
+                <x:String>Näita lumememm</x:String>
+                <x:String>Muuda värvi</x:String>
+                <x:String>Sulata</x:String>
+                <x:String>Tantsi</x:String>
+            </Picker.Items>
+        </Picker>
+        
+        <Label x:Name="tegevusLabel" Text="Tegevus: –" FontSize="14" TextColor="Gray"/>
+
+        <Button Text="Käivita" Clicked="Nupp_Clicked" BackgroundColor="Blue" TextColor="White"/>
+
+        <Label Text="Läbipaistvus:"/>
+        <Slider x:Name="OPCSlider" Minimum="0" Maximum="1" Value="1" ValueChanged="OPC_Change"/>
+
+        
+        <Label Text="Kiirus:"/>
+        <Stepper x:Name="stepperKiirus" Minimum="1" Maximum="5" Value="2" Increment="1"/>
+        
+
+
+
+
+        <AbsoluteLayout x:Name="lumeMemm"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="200"
+                    HeightRequest="420">
+
+            <Frame x:Name="keha2"
+             BackgroundColor="White"
+             BorderColor="#AED6F1"
+             CornerRadius="80"
+             WidthRequest="170"
+             HeightRequest="170"
+             HasShadow="True"
+             AbsoluteLayout.LayoutBounds="20, 300, 160, 160"
+             AbsoluteLayout.LayoutFlags="None">
+            </Frame>
+
+            <Frame x:Name="keha"
+               BackgroundColor="White"
+               BorderColor="#AED6F1"
+               CornerRadius="80"
+               WidthRequest="160"
+               HeightRequest="160"
+               HasShadow="True"
+               AbsoluteLayout.LayoutBounds="20, 180, 160, 160"
+               AbsoluteLayout.LayoutFlags="None">
+
+
+
+                <!-- Nööbid -->
+                <AbsoluteLayout>
+                    <BoxView Color="#2C3E50"
+                         CornerRadius="5"
+                         WidthRequest="10" HeightRequest="10"
+                         AbsoluteLayout.LayoutBounds="55, 45, 10, 10"
+                         AbsoluteLayout.LayoutFlags="None"/>
+                    <BoxView Color="#2C3E50"
+                         CornerRadius="5"
+                         WidthRequest="10" HeightRequest="10"
+                         AbsoluteLayout.LayoutBounds="55, 65, 10, 10"
+                         AbsoluteLayout.LayoutFlags="None"/>
+                    <BoxView Color="#2C3E50"
+                         CornerRadius="5"
+                         WidthRequest="10" HeightRequest="10"
+                         AbsoluteLayout.LayoutBounds="55, 85, 10, 10"
+                         AbsoluteLayout.LayoutFlags="None"/>
+                </AbsoluteLayout>
+            </Frame>
+
+
+
+
+
+            <!-- PEA (väiksem ring) -->
+            <Frame x:Name="pea"
+               BackgroundColor="White"
+               BorderColor="#AED6F1"
+               CornerRadius="60"
+               WidthRequest="120"
+               HeightRequest="120"
+               HasShadow="True"
+               AbsoluteLayout.LayoutBounds="40, 80, 120, 120"
+               AbsoluteLayout.LayoutFlags="None">
+
+                <!-- Silmad -->
+                <AbsoluteLayout>
+                    <BoxView Color="#1A252F"
+                         CornerRadius="8"
+                         WidthRequest="14" HeightRequest="14"
+                         AbsoluteLayout.LayoutBounds="20, 30, 14, 14"
+                         AbsoluteLayout.LayoutFlags="None"/>
+                    <BoxView Color="#1A252F"
+                         CornerRadius="8"
+                         WidthRequest="14" HeightRequest="14"
+                         AbsoluteLayout.LayoutBounds="66, 30, 14, 14"
+                         AbsoluteLayout.LayoutFlags="None"/>
+                    <!-- Nina (porgand) -->
+                    <BoxView Color="OrangeRed"
+                         CornerRadius="3"
+                         WidthRequest="24" HeightRequest="10"
+                         AbsoluteLayout.LayoutBounds="38, 52, 24, 10"
+                         AbsoluteLayout.LayoutFlags="None"/>
+                </AbsoluteLayout>
+            </Frame>
+
+            <!-- MÜTS -->
+            <BoxView Color="#2C3E50"
+                 CornerRadius="4"
+                 WidthRequest="90"
+                 HeightRequest="14"
+                 AbsoluteLayout.LayoutBounds="55, 70, 90, 14"
+                 AbsoluteLayout.LayoutFlags="None"/>
+            <BoxView Color="#2C3E50"
+                 CornerRadius="4"
+                 WidthRequest="60"
+                 HeightRequest="50"
+                 AbsoluteLayout.LayoutBounds="70, 25, 60, 50"
+                 AbsoluteLayout.LayoutFlags="None"/>
+
+
+
+        </AbsoluteLayout>
+    </VerticalStackLayout>
+
+</ContentPage>
