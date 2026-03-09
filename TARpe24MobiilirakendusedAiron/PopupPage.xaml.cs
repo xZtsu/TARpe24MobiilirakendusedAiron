@@ -49,13 +49,13 @@ public partial class PopupPage : ContentPage
 
 	private async void AlertQuestButton_Clicked(object? sender, EventArgs e)
 	{
-		string result1 = await DisplayPromptAsync("Küsimus","Kuidas installida Opsec-i", placeholder:"Kirjuta");
+		string result1 = await DisplayPromptAsync("Küsimus","Kuidas installida Opsec-i (all lowercase)", placeholder:"Kirjuta");
 
 		if (result1 != null)
 		{
 			if (result1 == "sudo apt install opsec")
 			await DisplayAlertAsync("Õige!", "Kirjutasid: " + result1, "OK");
-			if (result1 == null)
+			if (result1 == "")
                 await DisplayAlertAsync("Vale!", "Sa ei kirjutanud midagi" + result1, "OK");
             else
                 await DisplayAlertAsync("Vale!", "Kirjutasid : " + result1, "OK");
