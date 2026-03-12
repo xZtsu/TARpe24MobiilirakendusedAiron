@@ -87,7 +87,7 @@ public partial class ValgusfoorPage : ContentPage
     {
         if (isCycling)
         {
-            // Stop cycling if already running
+            // Stop cycling 
             isCycling = false;
             cycleTokenSource?.Cancel();
             StatusLabel.Text = "Tsükkel peatatud";
@@ -105,7 +105,7 @@ public partial class ValgusfoorPage : ContentPage
         {
             while (isCycling && !cycleTokenSource.Token.IsCancellationRequested)
             {
-                // Red light
+               
                 RedLight.Color = Colors.Red;
                 YellowLight.Color = Colors.Gray;
                 GreenLight.Color = Colors.Gray;
@@ -114,7 +114,7 @@ public partial class ValgusfoorPage : ContentPage
 
                 if (!isCycling) break;
 
-                // Yellow light
+               
                 RedLight.Color = Colors.Gray;
                 YellowLight.Color = Colors.Yellow;
                 GreenLight.Color = Colors.Gray;
@@ -123,7 +123,7 @@ public partial class ValgusfoorPage : ContentPage
 
                 if (!isCycling) break;
 
-                // Green light
+               
                 RedLight.Color = Colors.Gray;
                 YellowLight.Color = Colors.Gray;
                 GreenLight.Color = Colors.Green;

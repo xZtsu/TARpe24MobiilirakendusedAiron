@@ -11,32 +11,40 @@ public partial class PopupPage : ContentPage
 
 		Button alertListButton = new Button
 		{
-			Text = "Hinne",
+			Text = "Mõistatus",
 			VerticalOptions = LayoutOptions.Start,
 			HorizontalOptions = LayoutOptions.Center
 		};
 		alertListButton.Clicked += AlertListButton_Clicked;
 
-		Button alertQuestButton = new Button
+        Button alertQuestButton = new Button
+        {
+            Text = "Küsimus",
+            VerticalOptions = LayoutOptions.Start,
+            HorizontalOptions = LayoutOptions.Center
+        };
+        alertQuestButton.Clicked += AlertQuestButton_Clicked;
+
+        Button alertMathButton = new Button
 		{
-			Text = "Küsimus",
+			Text = "Korrutustabeli Test",
 			VerticalOptions = LayoutOptions.Start,
 			HorizontalOptions = LayoutOptions.Center
 		};
-		alertQuestButton.Clicked += AlertQuestButton_Clicked;
+		alertMathButton.Clicked += AlertMathButton_Clicked;
 
         Content = new VerticalStackLayout
         {
 		Spacing = 20,
 		Padding = new Thickness (0, 50, 0, 0),
-		Children = {alertListButton, alertQuestButton}
+		Children = {alertListButton, alertQuestButton, alertMathButton}
 		};
     }
 
 
 	private async void AlertListButton_Clicked(object? sender, EventArgs e)
 	{
-		string action = await DisplayActionSheetAsync("Mis hinde ma selle eest saan","", "Loobu", "5", "4", "3");
+		string action = await DisplayActionSheetAsync("Mis hinde ma eest saan", "", "Loobu", "5", "4", "3");
 
 		if (action != null && action != "Loobu")
 		{
@@ -61,8 +69,64 @@ public partial class PopupPage : ContentPage
                 await DisplayAlertAsync("Vale!", "Kirjutasid : " + result1, "OK");
         }
 	}
+    private async void AlertMathButton_Clicked(object? sender, EventArgs e)
+    {
+        string[] questions =
+        {
+        "2 * 3 = ?",
+        "4 * 5 = ?",
+        "6 * 7 = ?",
+        "8 * 9 = ?",
+        "3 * 4 = ?"
+    };
 
-		
+        string[] answers =
+        {
+        "6",
+        "20",
+        "42",
+        "72",
+        "12"
+    };
+
+        int correct = 0;
+        List<string> resultList = new List<string>();
+
+        for (int i = 0; i < questions.Length; i++)
+        {
+            string result = await DisplayPromptAsync(
+                "Küsimus " + (i + 1),
+                questions[i],
+                placeholder: "Kirjuta vastus"
+            );
+
+            if (result == null || result == "")
+            {
+                resultList.Add($"Q{i + 1}: Vastamata");
+                continue;
+            }
+
+            if (result == answers[i])
+            {
+                correct++;
+                resultList.Add($"Q{i + 1}: Õige ({result})");
+            }
+            else
+            {
+                resultList.Add($"Q{i + 1}: Vale ({result})");
+            }
+        }
+
+        string resultsText = string.Join("\n", resultList);
+
+        await DisplayAlertAsync(
+            "Test läbi!",
+            $"Õigeid vastuseid: {correct}/5\n\nTulemused:\n{resultsText}",
+            "OK"
+        );
+    }
+
+
 }
 
 
