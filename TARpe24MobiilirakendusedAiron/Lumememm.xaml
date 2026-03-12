@@ -35,7 +35,7 @@
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
                     WidthRequest="200"
-                    HeightRequest="420">
+                    HeightRequest="600">
 
             <Frame x:Name="keha2"
              BackgroundColor="White"
@@ -84,7 +84,7 @@
 
 
 
-            <!-- PEA (väiksem ring) -->
+            <!-- PEA  -->
             <Frame x:Name="pea"
                BackgroundColor="White"
                BorderColor="#AED6F1"
@@ -107,7 +107,7 @@
                          WidthRequest="14" HeightRequest="14"
                          AbsoluteLayout.LayoutBounds="66, 30, 14, 14"
                          AbsoluteLayout.LayoutFlags="None"/>
-                    <!-- Nina (porgand) -->
+                    <!-- Nina -->
                     <BoxView Color="OrangeRed"
                          CornerRadius="3"
                          WidthRequest="24" HeightRequest="10"

@@ -99,7 +99,7 @@ public partial class ValgusfoorPage : ContentPage
         isCycling = true;
         cycleTokenSource = new CancellationTokenSource();
 
-        KeelaKlikid(); // Disable other buttons while cycling
+        KeelaKlikid(); //disabled old men
 
         try
         {

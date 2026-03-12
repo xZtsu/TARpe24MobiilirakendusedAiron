@@ -71,49 +71,37 @@ public partial class PopupPage : ContentPage
 	}
     private async void AlertMathButton_Clicked(object? sender, EventArgs e)
     {
-        string[] questions =
-        {
-        "2 * 3 = ?",
-        "4 * 5 = ?",
-        "6 * 7 = ?",
-        "8 * 9 = ?",
-        "3 * 4 = ?"
-    };
-
-        string[] answers =
-        {
-        "6",
-        "20",
-        "42",
-        "72",
-        "12"
-    };
+        Random rnd = new Random();
 
         int correct = 0;
         List<string> resultList = new List<string>();
 
-        for (int i = 0; i < questions.Length; i++)
+        for (int i = 0; i < 5; i++)
         {
+            int a = rnd.Next(1, 11); 
+            int b = rnd.Next(1, 11); 
+            int answer = a * b;
+
             string result = await DisplayPromptAsync(
                 "Küsimus " + (i + 1),
-                questions[i],
+                $"{a} * {b} = ?",
                 placeholder: "Kirjuta vastus"
             );
 
-            if (result == null || result == "")
+            if (string.IsNullOrWhiteSpace(result))
             {
                 resultList.Add($"Q{i + 1}: Vastamata");
                 continue;
             }
 
-            if (result == answers[i])
+            if (result == answer.ToString())
             {
                 correct++;
                 resultList.Add($"Q{i + 1}: Õige ({result})");
             }
             else
             {
-                resultList.Add($"Q{i + 1}: Vale ({result})");
+                resultList.Add($"Q{i + 1}: Vale ({result}), õige: {answer}");
             }
         }
 
