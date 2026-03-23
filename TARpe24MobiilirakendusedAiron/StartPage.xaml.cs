@@ -5,8 +5,8 @@ public partial class StartPage : ContentPage
 {
     VerticalStackLayout vst;
     ScrollView sv;
-    public List<ContentPage> Lehed = new List<ContentPage>() { new TextPage(), new FigurePage(), new ValgusfoorPage(),new VarviPage(),new Lumememm(), new PopupPage() };
-    public List<string> leheNimed = new List<string>() { "Tekst", "Kujund", "Valgusfoor", "RGB slider", "Lumememm", "Popup" };
+    public List<ContentPage> Lehed = new List<ContentPage>() { new TextPage(), new FigurePage(), new ValgusfoorPage(),new VarviPage(),new Lumememm(), new PopupPage(),new TripsTrapsTrull() };
+    public List<string> leheNimed = new List<string>() { "Tekst", "Kujund", "Valgusfoor", "RGB slider", "Lumememm", "Popup","TripsTrapsTrull" };
     
     public StartPage()
     {

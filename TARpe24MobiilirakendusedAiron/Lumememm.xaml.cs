@@ -55,7 +55,7 @@ public partial class Lumememm : ContentPage
             case "Tantsi":
                 tegevusLabel.Text = "Tegevus: Tantsi";
                     isTantsiRunning = true;
-                for (int i = 0; i < 67 && isTantsiRunning; i++)
+                for (int i = 0; i < 2 && isTantsiRunning; i++)
                 {
                     await lumeMemm.TranslateTo(-30, 0, kiirusMs / 2);
                     await lumeMemm.TranslateTo(30, 0, kiirusMs / 2);
