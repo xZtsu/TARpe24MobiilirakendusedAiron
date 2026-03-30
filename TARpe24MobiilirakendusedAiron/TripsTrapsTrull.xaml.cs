@@ -53,7 +53,7 @@ public partial class TripsTrapsTrull : ContentPage
 
         startButton = new Button
         {
-            Text = "Alusta mäng",
+            Text = "Resetti mäng",
             FontSize = 16,
             BackgroundColor = Colors.White,
             TextColor = Colors.Black,
@@ -67,7 +67,7 @@ public partial class TripsTrapsTrull : ContentPage
 
         whoFirstButton = new Button
         {
-            Text = "Kes on\nesimene?",
+            Text = "Kes essa?",
             FontSize = 16,
             BackgroundColor = Colors.White,
             TextColor = Colors.Black,
