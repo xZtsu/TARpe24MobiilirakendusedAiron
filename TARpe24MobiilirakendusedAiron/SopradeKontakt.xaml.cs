@@ -1,4 +1,4 @@
-using Microsoft.Maui.Controls;
+ï»¿using Microsoft.Maui.Controls;
 using Microsoft.Maui.ApplicationModel.Communication;
 
 namespace TARpe24MobiilirakendusedAiron;
@@ -16,28 +16,28 @@ public partial class SopradeKontakt : ContentPage
 
     string[] tervitused = new string[]
     {
-        "Palju õnne!",
-        "Häid pühi!",
-        "Ilusat päeva!",
+        "Palju Ãµnne!",
+        "HÃ¤id pÃ¼hi!",
+        "Ilusat pÃ¤eva!",
         "Edu sulle!",
         "Parimat soovides!"
     };
 
     public SopradeKontakt()
     {
-        sc = new SwitchCell { Text = "Näita veel" };
+        sc = new SwitchCell { Text = "NÃ¤ita veel" };
         sc.OnChanged += Sc_OnChanged;
 
         ic = new ImageCell
         {
             ImageSource = ImageSource.FromFile("bob.jpg"),
-            Text = "Sõbra foto",
-            Detail = "Kirjeldus"
+            Text = "foto ei ole",
+            Detail = "mingi kirjeldus vms kork teemus"
         };
 
         fotosection = new TableSection();
 
-        // Sisestusväljad
+        // SisestusvÃ¤ljad
         telefonCell = new EntryCell
         {
             Label = "Telefon",
@@ -54,8 +54,8 @@ public partial class SopradeKontakt : ContentPage
 
         sonumCell = new EntryCell
         {
-            Label = "Sõnum",
-            Placeholder = "Sisesta sõnum"
+            Label = "SÃµnum",
+            Placeholder = "Sisesta sÃµnum"
         };
 
         // Nupud (ViewCell sees)
@@ -68,7 +68,7 @@ public partial class SopradeKontakt : ContentPage
         var emailBtn = new Button { Text = "SAADA EMAIL" };
         emailBtn.Clicked += Saada_email_Clicked;
 
-        var greetBtn = new Button { Text = "ÕNNITLUS" };
+        var greetBtn = new Button { Text = "Ã•NNITLUS" };
         greetBtn.Clicked += Saada_tervitus_Clicked;
 
         var buttonLayout = new StackLayout
@@ -89,7 +89,7 @@ public partial class SopradeKontakt : ContentPage
                     sc
                 },
 
-                new TableSection("Lisavõimalused:")
+                new TableSection("LisavÃµimalused:")
                 {
                     new ViewCell { View = buttonLayout }
                 },
@@ -101,7 +101,7 @@ public partial class SopradeKontakt : ContentPage
         Content = tableview;
     }
 
-    // FOTO NÄITAMINE
+    // 
     private void Sc_OnChanged(object sender, ToggledEventArgs e)
     {
         if (e.Value)
@@ -114,11 +114,11 @@ public partial class SopradeKontakt : ContentPage
         {
             fotosection.Title = "";
             fotosection.Remove(ic);
-            sc.Text = "Näita veel";
+            sc.Text = "NÃ¤ita veel";
         }
     }
 
-    // HELISTAMINE
+    // 
     private void Helista_Clicked(object sender, EventArgs e)
     {
         string phone = telefonCell.Text;
@@ -129,7 +129,7 @@ public partial class SopradeKontakt : ContentPage
         }
     }
 
-    // SMS
+    // 
     private async void Saada_sms_Clicked(object sender, EventArgs e)
     {
         string phone = telefonCell.Text;
@@ -144,7 +144,7 @@ public partial class SopradeKontakt : ContentPage
         }
     }
 
-    // EMAIL
+    // 
     private async void Saada_email_Clicked(object sender, EventArgs e)
     {
         string email = emailCell.Text;
@@ -166,7 +166,7 @@ public partial class SopradeKontakt : ContentPage
             await DisplayAlert("Viga", "E-mail ei ole toetatud", "OK");
     }
 
-    // JUHUSLIK TERVITUS
+    // 
     private async void Saada_tervitus_Clicked(object sender, EventArgs e)
     {
         var rnd = new Random();
